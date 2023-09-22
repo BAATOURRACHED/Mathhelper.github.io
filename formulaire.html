@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fonctions Solver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
+	<link rel="shortcut icon" type="x-icon" href="images/math-images/logo2.PNG">
+	<link rel="stylesheet" href="assets/css/fadein.css">
+
+</head>
+
+  
+
+<body class="main-bg">
+    
+    <div id="page-wrapper">
+
+	<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html"> <i class="fa fa-home" aria-hidden="true"></i></a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="menu.html">informatique </a><ul><li><a href="informatique.html">Algorithme & python</a></li><li><a href="webh.html">HTML</a></li><li><a href="webc.html">CSS</a></li></ul> </li>
+							<li><a href="algébre.html">Algébres</a></li>
+							<li><a href="géométrie.html">Géométrie</a></li>
+							<li class="pagex"><a  href="formulaire.html" class="button primary">Fonctions Solver</a></li>
+						</ul>
+					</nav>
+				</header>
+				<section>
+					<title>Check if a Number is Prime</title>
+<style>
+  body{
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+	
+  }
+  label {
+    font-size: 20px;
+  }
+button {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+button:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+button::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+
+</style>
+</head>
+
+<body>
+<form>
+  <p>Prime number Check :</p>
+  <input  class="input"  type="number" id="number" placeholder="Enter a number:"><br>
+  <button type="button" onclick="checkPrime()">Check if Prime</button>
+  <p id="result1"></p>
+</form>
+<hr>
+
+<!-- This is a script that defines a function to check if a number is prime -->
+<script>
+  function checkPrime() {
+    // Retrieve the user input from the HTML element with the ID "number"
+    let num = document.getElementById("number").value;
+    // Set a boolean variable named isPrime to true
+    let isPrime = true;
+
+    // Check if the user input is less than or equal to 1
+    if (num <= 1) {
+      // If so, set isPrime to false, because 1 and all numbers less than 1 are not prime
+      isPrime = false;
+    } else {
+      // If the input is greater than 1, loop through values of i from 2 to the square root of num
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        // Check if num is divisible by i without a remainder
+        if (num % i === 0) {
+          // If so, set isPrime to false and break out of the loop
+          isPrime = false;
+          break;
+        }
+      }
+    }
+
+    // Use if/else statements to update an HTML element with the ID "result1" to display whether the input number is prime or not
+    if (isPrime) {
+      document.getElementById("result1").innerHTML = num + " is a prime number.";
+    } else {
+      document.getElementById("result1").innerHTML = num + " is not a prime number.";
+    }
+  }
+</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trigonometry Calculator</title>
+  </head>
+  <body>
+    <h1>Trigonometry Calculator :</h1>
+    <input type="number" id="inputNumber" class="input" placeholder="Enter angle"><br>
+    <br>
+    
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+    <script>
+      function calculate() {
+        // Get the input value
+        var input = document.getElementById("inputNumber").value;
+
+        // Calculate the trigonometric functions
+        var cos = Math.cos(input);
+        var sin = Math.sin(input);
+        var tan = Math.tan(input);
+
+        // Display the results
+        var resultElement = document.getElementById("result");
+        resultElement.innerHTML = "Cos: " + cos + "<br>" +
+                                  "Sin: " + sin + "<br>" +
+                                  "Tang: " + tan;
+      }
+    </script>
+    <hr>
+  </body>
+</html>
+
+<section>
+  <!DOCTYPE html>
+<html>
+<head>
+	<title>Résolution de Ax + B = 0</title>
+	<meta charset="utf-8">
+</head>
+<body>
+  <h1> A*x + B =0  Solver :</h1>
+	<input type="number" class="input" id="a" placeholder="Enter A">
+	<input type="number" class="input" id="b" placeholder="Enter B"><br><br>
+	<button onclick="solve()">Résoudre</button>
+	<p id="result3"></p>
+  <script>
+		// This is a JavaScript function that solves the equation Ax + B = 0
+		function solve() {
+			// Retrieve the values of A and B entered by the user
+			var a = Number(document.getElementById("a").value);
+			var b = Number(document.getElementById("b").value);
+			// Retrieve the HTML element where the result will be displayed
+			var result3 = document.getElementById("result3");
+			// Check if A is 0
+			if (a === 0) {
+				// If A is 0, check if B is also 0
+				if (b === 0) {
+					// If both A and B are 0, the equation has an infinite number of solutions
+					result3.textContent = "L'équation a une infinité de solutions.";
+				} else {
+					// If only A is 0, and B is not 0, the equation has no solution
+					result3.textContent = "L'équation n'a pas de solution.";
+				}
+			} else {
+				// If A is not 0, calculate the value of x and display the result
+				var x = -b / a;
+				result3.textContent = "La solution de l'équation est x = " + x + ".";
+			}
+		}
+	</script>
+  <br>
+</body>
+</html>
+
+</section>
+</body>
+				</section>
+				<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			   <script src="assets/js/jquery.scrollex.min.js"></script>
+			       <script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			   <script src="assets/js/main.js"></script>
+
+</body>
+</html>
